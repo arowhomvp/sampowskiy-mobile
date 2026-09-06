@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     "rest_framework",
     "apps.users",
     "apps.news",
-    "apps.brands"
+    "apps.brands",
+    "apps.reviews",
+    "apps.phones"
 ]
 
 MIDDLEWARE = [

@@ -1,19 +1,19 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Brands
-from .serializers import BrandsSerializer
+from .models import Reviews
+from .serializers import ReviewsSerializer
 
 
 @api_view(["GET", "POST"])
-def brands(request):
+def reviews(request):
     if request.method == "GET":
-        brands = Brands.objects.all()
-        serializer = BrandsSerializer(brands, many=True)
+        reviews = Reviews.objects.all()
+        serializer = ReviewsSerializer(reviews, many=True)
         return Response(serializer.data)
 
     if request.method == "POST":
-        serializer = BrandsSerializer(data=request.data)
+        serializer = ReviewsSerializer(data=request.data)
 
         if serializer.is_valid():
             serializer.save()
@@ -28,19 +28,23 @@ def brands(request):
         )
 
 
-@api_view(["PATCH", "DELETE"])
-def brands_detail(request, brands_id):
+@api_view(["GET", "PATCH", "DELETE"])
+def reviews_detail(request, reviews_id):
     try:
-        brand = Brands.objects.get(id=brands_id)
-    except Brands.DoesNotExist:
+        review = Reviews.objects.get(id=reviews_id)
+    except Reviews.DoesNotExist:
         return Response(
-            {"error": "Brand not found"},
+            {"error": "Review not found"},
             status=status.HTTP_404_NOT_FOUND
         )
 
+    if request.method == "GET":
+        serializer = ReviewsSerializer(review)
+        return Response(serializer.data)
+
     if request.method == "PATCH":
-        serializer = BrandsSerializer(
-            brand,
+        serializer = ReviewsSerializer(
+            review,
             data=request.data,
             partial=True
         )
@@ -55,6 +59,7 @@ def brands_detail(request, brands_id):
         )
 
     if request.method == "DELETE":
-        brand.delete()
-        return Response({"Brand Deleted"},
-            status=status.HTTP_204_NO_CONTENT)
+        review.delete()
+        return Response(
+            status=status.HTTP_204_NO_CONTENT
+        )
