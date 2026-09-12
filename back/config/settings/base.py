@@ -44,8 +44,15 @@ INSTALLED_APPS = [
     "apps.news",
     "apps.brands",
     "apps.reviews",
-    "apps.phones"
+    "apps.phones",
+    "apps.favorites",
+    "apps.notifications"
 ]
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

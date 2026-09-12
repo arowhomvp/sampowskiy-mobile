@@ -29,9 +29,8 @@ def news(request):
         )
 
 
-@api_view(["PATCH", "DELETE"])
+@api_view(["GET", "PATCH", "DELETE"])
 def news_detail(request, news_id):
-
     try:
         news = News.objects.get(id=news_id)
     except News.DoesNotExist:
@@ -39,7 +38,10 @@ def news_detail(request, news_id):
             {"error": "News not found"},
             status=status.HTTP_404_NOT_FOUND
         )
-
+    if request.method == "GET":
+        serializer = NewsSerializers(news)
+        return Response(serializer.data)
+    
     if request.method == "PATCH":
         serializer = NewsSerializers(
             news,
