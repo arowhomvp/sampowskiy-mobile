@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     "apps.reviews",
     "apps.phones",
     "apps.favorites",
-    "apps.notifications"
+    "apps.notifications",
+    "apps.carts"
+
 ]
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
