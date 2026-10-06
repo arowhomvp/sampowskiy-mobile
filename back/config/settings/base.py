@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     "apps.carts",
     "apps.orders",
     "apps.addresses",
-    "apps.login"
+    "apps.login",
+    "apps.computers"
 
 ]
 REST_FRAMEWORK = {
