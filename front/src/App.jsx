@@ -1,5 +1,10 @@
 import "./App.css";
 import logo from "./assets/logo.png";
+import phone from "./images/phone.png";
+import samsunga from "./images/samsunga.png";
+import iphone from "./images/iphone.png";
+import xiaomi from "./images/xiaomi.png";
+import kayfot from "./images/samsungs25.png";
 
 function App() {
   return (
@@ -29,10 +34,10 @@ function App() {
             <div className="header_number">+888 75 987 2792</div>
 
             <nav className="header_nav">
-              <a href="/news">News</a>
-              <a href="/phones">Phones</a>
-              <a href="/reviews">Reviews</a>
-              <a href="/brands">Brands</a>
+              <a href="http://localhost:8000/api/news/">News</a>
+              <a href="http://localhost:8000/api/phones/">Phones</a>
+              <a href="http://localhost:8000/api/reviews/">Reviews</a>
+              <a href="http://localhost:8000/api/brands/">Brands</a>
             </nav>
           </div>
         </div>
@@ -56,22 +61,8 @@ function App() {
             </div>
 
             <div className="hero_phone">
-              <div className="phone_mockup">
-                <div className="phone_camera"></div>
-
-                <div className="phone_screen">
-                  <span>S</span>
-                </div>
-              </div>
+              <img src={phone} alt="" />
             </div>
-          </div>
-
-          <div className="slider_dots">
-            <button></button>
-            <button></button>
-            <button className="active"></button>
-            <button></button>
-            <button></button>
           </div>
         </section>
 
@@ -118,7 +109,9 @@ function App() {
 
           <div className="product_grid">
             <article className="product_card">
-              <div className="product_image">📱</div>
+              <div className="product_image">
+                <img src={samsunga} alt="" height={150} width={130} />
+              </div>
 
               <h3>Samsung Galaxy A56</h3>
 
@@ -134,7 +127,7 @@ function App() {
             </article>
 
             <article className="product_card">
-              <div className="product_image">📱</div>
+              <div className="product_image"><img src={iphone} alt="Phone image" height={150} width={130} /></div>
 
               <h3>iPhone 16</h3>
 
@@ -150,7 +143,7 @@ function App() {
             </article>
 
             <article className="product_card">
-              <div className="product_image">📱</div>
+              <div className="product_image"><img src={kayfot} alt="" height={150} width={130} /></div>
 
               <h3>Samsung Galaxy S25</h3>
 
@@ -166,7 +159,7 @@ function App() {
             </article>
 
             <article className="product_card">
-              <div className="product_image">📱</div>
+              <div className="product_image"><img src={xiaomi} alt="" height={150} width={130} /></div>
 
               <h3>Xiaomi Redmi Note</h3>
 

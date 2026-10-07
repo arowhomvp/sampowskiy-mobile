@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def computers_page(request):
+    render(request, "computers/computers.html")
